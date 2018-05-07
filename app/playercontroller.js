@@ -9,9 +9,9 @@ function PlayerController() {
 
     //SEARCH
 
-    this.search = function search(e){
+    this.getPlayer = function getPlayer(e){
         e.preventDefault()
-        var query = e.target.query.value
+        var query = e.target.player.value
         var results = playersService.search(query)
         drawPlayers(results)
         };
