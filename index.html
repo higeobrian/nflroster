@@ -15,34 +15,57 @@
 <body class="background1">
     <section class="container-fluid">
         <div class="row bgsearch">
-            <div class="col d-flex justify-content-center">
-                <button>Search</button>
-                <input type="text">
+            <div class="col">
+                <form class="form-inline" onsubmit="app.controllers.playerCtrl.getPlayer(event)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="player" placeholder="Search Player Or Team" />
+                        <button type="submit" class="btn btn-primary" id="get-player-button">Get Players</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
         <div class="row">
             <div class="col-4">
-                    <div class="card bordercard1">
-                <h1>NFL Roster:</h1>
-            </div>
-        </div>
-
-        <div class="col-4">
-                
-                    </div>
-    
-
-            <div class="col-4">
-                <div class="player-card">
-                        <div class="card bordercard2">
-                    <h1>My Team:</h1>
-                    <span>Name:</span>
-                    <span>Team:</span>
-                    <span>Position:</span>
-                    <span>Number:</span>
-                        </div>
+                <div class="card bordercard2" id="results">
+                    <!-- <h1>Results:</h1>
+                        <div>
+                    <ul>
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                        <li>Name: </li>
+                        <li>Team: </li>
+                        <li>Position: </li>
+                        <li><button onsubmit="app.controllers.playerCtrl.getPlayer">Add</button></li>
+                    </ul> 
+                </div>-->
                 </div>
             </div>
+
+            <div class="col-4">
+
+            </div>
+
+            <div class="col-4">
+                <div class="card bordercard1">
+                    <div class="player-card" id="myteam">
+                        <!-- <h1>My Team:</h1>
+                        <div>
+                    <ul>
+                        <li>
+                            <img src="" alt="">
+                        </li>
+                        <li>Name: </li>
+                        <li>Team: </li>
+                        <li>Position: </li>
+                        <li><button onsubmit="app.controllers.playerCtrl.getPlayer">Remove</button></li>
+                    </ul> 
+                </div>-->
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
