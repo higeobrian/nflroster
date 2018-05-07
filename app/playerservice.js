@@ -39,64 +39,74 @@ function PlayersService(callback) {
     return filteredResults
   }
 
+  this.getPlayersByPosition = function (position) {
+    return playersData.filter(function (player) {
+      if (player.position == position) {
+        return true;
+      }
+    })
+  }
+
+  this.getPlayersByTeam = function (teamName) {
+    return playersData.filter(function (player) {
+      if (player.pro_team == teamName) {
+        return true;
+      }
+    });
+  }
+
   //ADD TO MY ROSTER
 
-  this.addToTeam = function addToTeam(addPlayerId, cb){
-    return playersData.filter(function (player)){
-      if (player.id = playerID){
-        if (!comparePlayer(player)){
-          if (myTeam.length <= 10){
-            if (!comparePosition(player)){
-              if (myTeam.push(addPlayer)){
-                return cb(myTeam);
-              }
+  this.addToTeam = function addToTeam(addPlayerId, cb) {
+    return playersData.filter(function (player) {
+      if (player.id == addPlayerId) {
+        if (!comparePlayer(player)) {
+          if (!comparePosition(player)) {
+            if (myTeam.length <= 9) {
+              myTeam.push(player)
+              return cb(myTeam);
+            }
+            else {
+              alert("10 Players Only!")
             }
           }
+          else {
+            alert("That position is filled!")
+          }
+        }
+        else {
+          alert("We already have him!")
         }
       }
-            }
+    });
   }
 
-
-  function comparePlayer(player) {
-    for (var i = 0; i < myTeam.length; i++) {
-      var element = myTeam[i];
-      if (player.id == element.id) {
-        return true
-      }
-      {
-        {
-        } return false {
-        }
-      }
+function comparePlayer(player) {
+  for (var i = 0; i < myTeam.length; i++) {
+    var element = myTeam[i];
+    if (player.id == element.id) {
+      return true
     }
   }
-
-  function comparePosition(position) {
-    for (var i = 0; i < myTeam.length; i++) {
-      var element = myTeam[i];
-      if (position.id == element.id) {
-        return true
-      }
-      {
-        {
-        } return false {
-
-
-  //REMOVE FROM MY ROSTER
-
-  this.removeFromTeam = function removeFromTeam(removePlayerId, cb) {
-    var removePlayer = myTeam.find(function (player) {
-      return player.id == removePlayerId
-    })
-
-    var index = myTeam.indexOf(removePlayer)
-    myTeam.splice(index, 1)
-    cb(myTeam)
-  };
-
-
+  return false
 }
 
-// Need to create a for loop with if true statement to prevent adding same 
-//player id UNDER THE addToTeam function. 
+function comparePosition(position) {
+  for (var i = 0; i < myTeam.length; i++) {
+    var element = myTeam[i];
+    if (position.id == element.id) {
+      return true
+    }
+  }
+  return false
+}
+
+
+this.removeFromTeam = function removeFromTeam(removePlayerId, cb) {
+
+  var removePlayer = myTeam.indexOf(removePlayerId)
+    myTeam.splice(removePlayer, 1)
+    cb(myTeam)
+}
+}
+    

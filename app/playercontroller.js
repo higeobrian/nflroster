@@ -35,7 +35,6 @@ function PlayerController() {
         //LOADS MY PERSONAL TEAM
 
         function drawMyTeam(myPlayers) {
-        debugger
             var template = '<h1>My Team</h1>'
             for (let i = 0; i < myPlayers.length; i++) {
                 var myPlayer = myPlayers[i];
